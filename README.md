@@ -11,7 +11,7 @@ Reducing power consumption can increase the battery duration, which will improve
 # Installation
 
 In Unitys package manager -> Add package from Git URL:
-https://github.com/wtfoliver/com.walkthefrog.energysaver.git
+https://github.com/wtfoliver/UnityEnergySaver.git
 
 ### Quick start
 
@@ -41,7 +41,7 @@ SimulationMode PhysicsSimulationMode;
 
 The first three parameters determine which profile fits best. The PowerConstraints check if the battery is plugged in and if the game is in focus. If multiple profiles should match, priority acts as a tie-braker. Energy profiles are initially loaded from EnergyProfileDefinition scriptable objects, but the architecture allows for loading overrides made by players during runtime.
 
-### IEnergyActions\*\*
+### IEnergyActions
 
 Currently the following actions are implemented:
 
