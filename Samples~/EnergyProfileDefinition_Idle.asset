@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: EnergyProfileDefinition_Idle
   m_EditorClassIdentifier: 
   ActivateAfterIdle: 10
+  PowerConstraints: -1
+  Priority: 0
   MaxFps: 10
   RenderInterval: 100
   RenderScaleMultiplier: 0.5
-  PhysicsSimulationMode: 2
-  PowerConstraints: -1
-  Priority: 0
+  PhysicsSimulationMode: 0
+  Physics2DSimulationMode: 0
