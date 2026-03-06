@@ -1,0 +1,20 @@
+{
+    "name": "EnergySaving.HDRP",
+    "rootNamespace": "",
+    "references": [
+        "EnergySaving",
+        "Unity.RenderPipelines.HighDefinition.Runtime",
+        "Unity.RenderPipelines.Core.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "HAS_HDRP"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,24 @@
+{
+  "name": "com.walkthefrog.energysaver",
+  "version": "0.1.0",
+  "displayName": "Energy Saver",
+  "description": "This plugin for Unity allows for several power reducing actions to be performed in your game.",
+  "unity": "2022.3",
+  "dependencies": 
+  {
+    "com.unity.inputsystem": "1.0.0"
+  },
+  "author": 
+  {
+    "name": "Walk The Frog",
+    "url": "https://walkthefrog.com/"
+  },
+  "samples": 
+  [
+	{
+    "displayName": "EnergyProfileDefinitions Examples",
+    "description": "Contains sample energy profiles definitions, as well as a ready to use prefab. Installation recommended.",
+    "path": "Samples~/"
+	}
+  ]
+}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe03d2537e76cb64a907b66e7e20d526, type: 3}
+  m_Name: EnergyProflleDefinition_Reduced
+  m_EditorClassIdentifier: 
+  ActivateAfterIdle: 3
+  MaxFps: 30
+  RenderInterval: 2
+  RenderScaleMultiplier: 0.8
+  PhysicsSimulationMode: 2
+  PowerConstraints: -1
+  Priority: 0
