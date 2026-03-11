@@ -2,35 +2,40 @@ This plugin for Unity allows for several power reducing actions to be performed 
 
 # What does the plugin do?
 
-The plugin listens to player inputs. If no input is registered, it switches between energy profiles. The energy profiles define what settings should be adjusted (for example frame rate, resolution, physics updates). You can create or modify energy profiles to fit them to your project.
+The plugin listens to player input. If no input is registered, it switches between energy profiles. Energy profiles define which settings should be adjusted (for example frame rate, resolution or physics updates). You can create or modify energy profiles to fit the needs of your project.
 
 # Why does that matter?
 
-Reducing power consumption can increase the battery duration, which will improve player experience. It also saves money during development and games consumption, while also reducing carbon emissions.
+Reducing power consumption can increase battery life, improving player experience. It can also reduce energy costs during development and gameplay while lowering carbon emissions.
 
 # Installation
 
-In Unitys package manager -> Add package from Git URL:
+In Unity's package manager -> Add package from Git URL:
 https://github.com/wtfoliver/UnityEnergySaver.git
 
 ### Quick start
 
-Drop the EnergySaver-prefab in your scene. It should work from the start. The default EnergyProfiles start kicking in after 3 seconds.
+Drop the EnergySaver prefab in your scene. It should work out of the box. The default EnergyProfiles begin activating after 10 seconds of inactivity.
 
 # How to use the plugin?
 
-The plugin has three central pieces. **The EnergySaver**, **IEnergyActions** and **EnergyProfiles**. The EnergySaver is a singleton that listens to inputs and updates the currently used EnergyProfile. The EnergyProfiles are data bundles that contain the information for the IEnergyActions. When the EnergySaver updates all IEnergyActions with a new EnergyProfile, the IEnergyActions update i.e. FPS, render scale (URP), render intervals and more.
+The plugin has three central pieces. 
+- **The EnergySaver** is a singleton that listens for input and updates the currently active EnergyProfile.
+- **IEnergyActions** are data bundles containing the settings used by the IEnergyActions.
+- **EnergyProfiles**. apply the settings defined in the active EnergyProfile.
 
-While EnergySaver listens to input, you can also lock profiles (to prevent fps drops during cutscenes for example) or force new profiles.
+When the EnergySaver updates all IEnergyActions with a new EnergyProfile, the IEnergyActions update i.e. FPS, render scale (URP), render intervals and more.
 
-All IEnergyActions that are components on the EnergySaver gameObject will be used to update your game. Removing or adding IEnergyActions as components changes how the energy saver works. This can be used if you only want certain actions to take place, i.e. if changing physics updates interferes with your game play.
+While EnergySaver listens to input automatically, you can also lock profiles (for example to prevent FPS drops during cutscenes) or force a specific profiles.
+
+All IEnergyActions attached as components to the EnergySaver GameObject will be used to update the game. Adding or removing IEnergyActions changes how the energy saver behaves. This allows you to disable specific actions if they interfere with gameplay (for example physics updates).
 
 ### EnergyProfiles
 
 This is what the settings of an energy profile look like:
 
 ```
-float ActivateAfterIdle = 3f;
+float ActivateAfterIdle = 10f;
 PowerConstraints PowerConstraints;
 int Priority;
 int MaxFps = 60;
@@ -39,17 +44,17 @@ float RenderScaleMultiplier = 1f;
 SimulationMode PhysicsSimulationMode;
 ```
 
-The first three parameters determine which profile fits best. The PowerConstraints check if the battery is plugged in and if the game is in focus. If multiple profiles should match, priority acts as a tie-braker. Energy profiles are initially loaded from EnergyProfileDefinition scriptable objects, but the architecture allows for loading overrides made by players during runtime.
+The first three parameters determine which profile should become active. **PowerConstraints** check whether the device is plugged in and whether the game is in focus. If multiple profiles match, **Priority** acts as a tie-braker. Energy profiles are initially loaded from **EnergyProfileDefinition ScriptableObjects**, but the architecture allows player overrides to be loaded at runtime.
 
 ### IEnergyActions
 
 Currently the following actions are implemented:
 
-- FrameRateAction: Reduces the FPS of your game.
-- RenderingIntervalAction: Changes the frequency in which new frames are being rendered. This takes the FPS into account. If you game has 30 FPS and the rendering interval is 60, the game renders a new frame every 2 seconds.
-- PhysicsSimulationAction: Changes if the physics engine updates.
-- RenderScaleAction: Is used to tweak the RenderScale of the currently used URP-asset. Works only with the Universal Render Pipeline.
-- DynamicResolutionAction: Alters the dynamic scale of the currently used HDRP-asset. Works only with the High definition render pipeline.
+- FrameRateAction: Reduces the game's FPS.
+- RenderingIntervalAction: Changes how frequently new frames are  rendered. This takes the FPS into account. If your game has 30 FPS and the rendering interval is 60, the game renders a new frame every 2 seconds.
+- PhysicsSimulationAction: Changes how the physics engine updates.
+- RenderScaleAction: Adjusts the render scale of the currently active URP asset. Works only with the Universal Render Pipeline.
+- DynamicResolutionAction: Alters the dynamic scale of the currently active HDRP-asset. Works only with the High definition render pipeline.
 
 # Sources and further reading
 
@@ -59,7 +64,7 @@ Some Unity-specific ideas very copied from Bronson Zgeb's [blog post](https://br
 
 ### Sustainable games alliance
 
-While Walk The Frog is not part of the [SGA](https://sustainablegamesalliance.org/) at the moment, the plugin only exists because of the SGAs effort to make game development and consumption more energy efficient. If sustainability in games is something you are interested in - they offer plenty of resources regarding the topic.
+While Walk The Frog is currently not a member of the [SGA](https://sustainablegamesalliance.org/), this plugin only exists largely thanks to the SGA's effort to make game development and consumption more energy-efficient. If sustainability in games interests you, they offer many useful resources on the topic.
 
 # Version Requirements
 
@@ -67,17 +72,18 @@ The plugin was tested in Unity 2022.3.62f2 and upwards. Older Unity versions may
 
 # Restrictions
 
-The plugin currently only works with Unity's Universal Render Pipeline (URP) or High definition render pipeline (HDRP). It also requires the newer input package instead of the legacy input class.
+The plugin currently only works with Unity's Universal Render Pipeline (URP) or High definition render pipeline (HDRP).
 
 # Further development
 
-This plugin is still in a very early state, so be aware of that when using it in an actual production context. As of now, I only managed to test the game on PC. Any feedback and bug reports are appreciated.
+This plugin is still in a very early stage, so use caution when integrating it into production projects. So far it has only been tested on PC.
+
+Feedback and bug reports are very welcome.
 
 ### Planned features
 
-- Support the built-in render pipeline
-- Support the legacy input system
-- More energy saving features
+- Support the Built-in Render Pipeline
+- Additional energy-saving features
 
 # License
 

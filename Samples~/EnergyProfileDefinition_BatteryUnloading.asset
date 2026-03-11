@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe03d2537e76cb64a907b66e7e20d526, type: 3}
-  m_Name: EnergyProflleDefinition_Reduced
+  m_Name: EnergyProfileDefinition_BatteryUnloading
   m_EditorClassIdentifier: 
-  ActivateAfterIdle: 10
-  PowerConstraints: 0
-  Priority: 0
+  ActivateAfterIdle: 0
+  PowerConstraints: 2
+  Priority: 1
   MaxFps: 30
-  RenderInterval: 2
-  RenderScaleMultiplier: 0.8
+  RenderInterval: 0
+  RenderScaleMultiplier: 1
   PhysicsSimulationMode: 0
   Physics2DSimulationMode: 0

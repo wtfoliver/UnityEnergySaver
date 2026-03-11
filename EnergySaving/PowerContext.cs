@@ -1,6 +1,6 @@
 public struct PowerContext
 {
-    public bool IsFocused;
-    public bool IsPluggedIn;
+    public bool NotFocused;
+    public bool NotPluggedIn;
     public float IdleTime;
 }

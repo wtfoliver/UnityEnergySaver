@@ -2,6 +2,6 @@
 public enum PowerConstraints
 {
     None = 0,
-    RequiresFocus = 1 << 0,
-    RequiresPluggedIn = 1 << 1
+    NotFocused = 1 << 0,
+    NotPluggedIn = 1 << 1
 }

@@ -32,10 +32,10 @@ public class PowerStateEvaluator
     }
     bool ConstraintsSatisfied(PowerConstraints constraints, in PowerContext context)
     {
-        if ((constraints & PowerConstraints.RequiresFocus) != 0 && !context.IsFocused)
+        if ((constraints & PowerConstraints.NotFocused) != 0 && !context.NotFocused)
             return false;
 
-        if ((constraints & PowerConstraints.RequiresPluggedIn) != 0 && !context.IsPluggedIn)
+        if ((constraints & PowerConstraints.NotPluggedIn) != 0 && !context.NotPluggedIn)
             return false;
 
         return true;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 /// <summary>
 /// The main class that runs everything. Needs to be as a MonoBehaviour on a gameObject.
@@ -23,6 +24,7 @@ public class EnergySaver : MonoBehaviour
 
     bool _isLocked = false;
 
+    public static Action<EnergyProfile, PowerContext> OnProfileChanged;
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -62,13 +64,14 @@ public class EnergySaver : MonoBehaviour
         }
 
         _activityTracker.Tick();
-        EnergyProfile profile = _powerStateController.Evaluate(_activityTracker);
+        EnergyProfile profile = _powerStateController.Evaluate(_activityTracker, out PowerContext context);
 
         if(_currentProfile == null || _currentProfile != profile)
         {
             _currentProfile = profile;
             for (int i = 0; i < _actions.Length; i++)
                 _actions[i].Apply(_currentProfile);
+            OnProfileChanged?.Invoke(profile, context);
         }
     }
 

@@ -11,12 +11,12 @@ public sealed class PowerStateController
         _powerStateEvaluator = new PowerStateEvaluator();
     }
 
-    public EnergyProfile Evaluate(ActivityTracker activity)
+    public EnergyProfile Evaluate(ActivityTracker activity, out PowerContext context)
     {
-        PowerContext context = new PowerContext
+        context = new PowerContext
         {
-            IsFocused = Application.isFocused,
-            IsPluggedIn = SystemInfo.batteryStatus != BatteryStatus.Discharging,
+            NotFocused = !Application.isFocused,
+            NotPluggedIn = SystemInfo.batteryStatus == BatteryStatus.Discharging,
             IdleTime = activity.IdleTime
         };
 
