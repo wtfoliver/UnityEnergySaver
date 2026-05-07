@@ -19,10 +19,10 @@ Drop the EnergySaver prefab in your scene. It should work out of the box. The de
 
 # How to use the plugin?
 
-The plugin has three central pieces. 
+The plugin has three central pieces: 
 - **The EnergySaver** is a singleton that listens for input and updates the currently active EnergyProfile.
 - **IEnergyActions** are data bundles containing the settings used by the IEnergyActions.
-- **EnergyProfiles**. apply the settings defined in the active EnergyProfile.
+- **EnergyProfiles** apply the settings defined in the active EnergyProfile.
 
 When the EnergySaver updates all IEnergyActions with a new EnergyProfile, the IEnergyActions update i.e. FPS, render scale (URP), render intervals and more.
 
@@ -60,7 +60,7 @@ Currently the following actions are implemented:
 
 The plugin is very much inspired by Hauke Thiessens [Unreal Energy Saving Plugin](https://github.com/HaukeThiessen/EnergySavingPlugin), which itself references [this](https://cdn2.unrealengine.com/reducing-fortnites-power-consumption-layout-v03-ffedbeb1adeb.pdf) paper from Fortnite's energy saving features.
 
-Some Unity-specific ideas very copied from Bronson Zgeb's [blog post](https://bronsonzgeb.com/index.php/2021/10/16/low-power-mode-in-unity/).
+Some Unity-specific ideas were copied from Bronson Zgeb's [blog post](https://bronsonzgeb.com/index.php/2021/10/16/low-power-mode-in-unity/).
 
 ### Sustainable games alliance
 

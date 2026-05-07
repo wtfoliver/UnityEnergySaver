@@ -7,11 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(EnergySaver))]
 public class FrameRateAction : MonoBehaviour, IEnergyAction
 {
-    void Awake()
-    {
-        QualitySettings.vSyncCount = 0;
-    }
-
     public void Apply(EnergyProfile profile)
     {
         if (profile == null) return;

@@ -23,6 +23,7 @@ public class EnergySaver : MonoBehaviour
     IEnergyAction[] _actions;
 
     bool _isLocked = false;
+    public bool IsLocked => _isLocked;
 
     public static Action<EnergyProfile, PowerContext> OnProfileChanged;
     void Awake()
@@ -64,8 +65,8 @@ public class EnergySaver : MonoBehaviour
         }
 
         _activityTracker.Tick();
-        EnergyProfile profile = _powerStateController.Evaluate(_activityTracker, out PowerContext context);
-
+        EnergyProfile profile = _powerStateController.Evaluate(_activityTracker, Time.unscaledTime,  out PowerContext context);
+        
         if(_currentProfile == null || _currentProfile != profile)
         {
             _currentProfile = profile;
@@ -88,6 +89,15 @@ public class EnergySaver : MonoBehaviour
 
     public void ForceProfile(EnergyProfileDefinition definition)
     {
+        for(int i = 0; i < _profiles.Length; i++)
+        {
+            if(_profiles[i].Definition == definition)
+            {
+                ForceProfile(_profiles[i]);
+                return;
+            }
+        }
+
         ForceProfile(new EnergyProfile(definition));
     }
 

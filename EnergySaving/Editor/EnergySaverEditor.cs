@@ -28,6 +28,16 @@ public class EnergySaverEditor : Editor
             }
         }
         GUI.enabled = true;
+        if(energySaver.IsLocked)
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.HelpBox("EnergySaver is locked.", MessageType.Info);
+        }
+        if(energySaver.CurrentProfile == null)
+        {
+            EditorGUILayout.Space();
+            EditorGUILayout.HelpBox("No energy profile is currently selected.", MessageType.Warning);
+        }
     }
 
     void DrawCurrentProfile(EnergyProfile profile)
