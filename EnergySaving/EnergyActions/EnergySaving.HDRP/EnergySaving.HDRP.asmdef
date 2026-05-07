@@ -15,6 +15,12 @@
     "defineConstraints": [
         "HAS_HDRP"
     ],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "",
+            "define": "HAS_HDRP"
+        }
+    ],
     "noEngineReferences": false
 }
