@@ -1,6 +1,6 @@
 {
   "name": "com.wtfoliver.energysaver",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "displayName": "Energy Saver",
   "description": "This plugin for Unity allows for several power reducing actions to be performed in your game.",
   "unity": "2022.3",

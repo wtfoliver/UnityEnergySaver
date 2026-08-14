@@ -1,3 +1,6 @@
+## 0.2.0
+- Updated FrameRateAction to respond differently to standalone builds or handheld builds
+
 ## 0.1.0
 Release test version
 
